@@ -1,0 +1,35 @@
+w#app
+  .apptitle 
+  .movie(@wheel.prevent="wheel")
+    .cards(:class="{iscartopen: iscartopen}")
+      .card(v-for="movie in movies")
+        .left
+          .cover(:style="bgcss(movie.cover)") 
+        .right
+          h2 {{movie.name}}
+          h4 {{movie.type}}
+          p(v-html="movie.description")
+          .price {{movie.price}}$
+          button.add(@click="addCart(movie,$event)") +add to card
+  .buybox(:style="bgcss(currentMovie.cover)",  v-if="currentMovie")
+
+  .fixed-control(@click="iscartopen=!iscartopen")
+    i.fas.fa-shopping-cart
+    span {{cart.length}}
+    
+  .control(:class="{iscartopen: iscartopen}")
+    .panel
+      h2 Your Cartlist
+      ul
+        li(v-for="(movie,mid) in cart")
+          
+          .thumbnail(:style="bgcss(movie.cover)")
+          h3 {{movie.name}}
+            .price {{movie.price}}$
+            .remove(@click="cart.splice(mid,1)") -
+              
+        li(v-if='cart.length==0')
+          h3 your cart is empty  :(
+       
+      hr
+      h3 {{totalprice}}$

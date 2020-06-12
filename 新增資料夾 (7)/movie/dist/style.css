@@ -1,0 +1,231 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,700;0,900;1,100&family=Roboto:wght@100&display=swap");
+* {
+  vertical-align: center;
+  outline: none;
+  position: relative;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+  font-family: "Roboto", sens-serif;
+  background: linear-gradient(75deg, #111, #ED213A);
+}
+
+#app {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  overflow: hidden;
+}
+
+.movie {
+  flex: 1;
+}
+
+.cards {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  justify-content: left;
+  position: relative;
+}
+.cards.iscartopen {
+  transform: scale(0.8);
+}
+
+.card {
+  width: 430px;
+  height: auto;
+  margin: 60px;
+  display: inline-flex;
+  flex-shrink: 0;
+  margin-left: 20vw;
+  margin-right: 20vw;
+  background-color: rgba(255, 255, 255, 0.9);
+  transition: 0.5s;
+  border-radius: 10px;
+  padding: 20px;
+  padding-bottom: 0px;
+  position: relative;
+  left: 0px;
+  transition: 0.6s left 0s;
+  box-shadow: 8px 5px 25px 5px rgba(0, 0, 0, 0.2);
+}
+.card .left {
+  flex: 1;
+  margin-bottom: -20px;
+}
+.card .left .cover {
+  width: 180px;
+  height: 250px;
+  border-radius: 5px;
+  transition: 0.5s;
+  position: relative;
+  top: -50px;
+  box-shadow: 8px 5px 25px 5px rgba(0, 0, 0, 0.2);
+}
+.card .right {
+  flex: 2;
+  padding: 20px;
+  padding-top: 10px;
+}
+.card .right h2 {
+  margin: 0;
+  font-weight: bold;
+  font-size: 24px;
+  color: #444;
+}
+.card .right h4 {
+  margin-top: 10px;
+  opacity: 0.8;
+  font-weight: normal;
+  margin-bottom: 10px;
+}
+.card .right p {
+  font-size: 10px;
+  line-height: 1.2;
+  text-align: justify;
+  opacity: 0.8;
+  color: #888;
+}
+.card .right .price {
+  display: inline-block;
+  margin-left: 10px;
+}
+.card .right button {
+  border-radius: 20px;
+  padding: 5px 20px;
+  background-color: #bbb;
+  color: #fff;
+  cursor: pointer;
+  margin-left: 15px;
+  margin-top: 20px;
+}
+.card .right button:hover {
+  color: #f95e5e;
+  background-color: #fff;
+}
+.card:hover {
+  transform: translateY(-10px);
+}
+.card:hover .left .cover {
+  transform: translateY(-10px);
+}
+
+.fixed-control {
+  position: fixed;
+  right: 20px;
+  top: 20px;
+  z-index: 1000;
+  cursor: pointer;
+  opacity: 0.5;
+  transition: 0.5s;
+}
+.fixed-control:hover {
+  opacity: 1;
+}
+.fixed-control .fas.fa-shopping-cart {
+  color: #fff;
+  font-size: 30px;
+  margin-right: 5px;
+}
+.fixed-control span {
+  color: #fff;
+}
+
+.buybox {
+  width: 50px;
+  height: 80px;
+  position: fixed;
+  right: 20px;
+  top: 20px;
+  opacity: 0;
+}
+
+.control {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: linear-gradient(10deg, #111 0%, #111, transparent 100%);
+  color: #eee;
+  padding: 5vw;
+  box-sizing: border-box;
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.5s;
+}
+.control.iscartopen {
+  opacity: 1;
+  pointer-events: initial;
+}
+.control .panel {
+  margin: 20px;
+  width: 70%;
+}
+.control ul {
+  padding: 0.5;
+  list-style: none;
+}
+.control li {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  padding: 5px 10px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: 0.5s;
+}
+.control li:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  transform: translateY(-10px);
+}
+.control li h3 {
+  display: inline-block;
+  width: 100%;
+  font-size: 17px;
+  opacity: 0.8;
+  padding: 10px;
+}
+.control li h3 .price {
+  float: right;
+}
+.control li h3 .remove {
+  display: inline-block;
+  margin-left: 10px;
+  color: red;
+  padding: 4px 15px;
+  background-color: rgba(255, 255, 255, 0.3);
+  border-radius: 30px;
+  transition: 0.5s;
+}
+.control li h3 .remove:hover {
+  background-color: #ef4c4c;
+  color: black;
+}
+.control li .thumbnail {
+  width: 50px;
+  height: 70px;
+  margin-right: 10px;
+}
+.control hr {
+  border: 1px solid #fff;
+  margin-top: 10px;
+}
+.control h3 {
+  padding: 15px;
+}
+.control h2 {
+  padding: 10px;
+}
